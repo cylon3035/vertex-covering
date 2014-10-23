@@ -5,3 +5,26 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+.viz-viewport{
+	width: 960px;
+	height: 500px;
+	border: 1px solid #DEDEDE;
+}

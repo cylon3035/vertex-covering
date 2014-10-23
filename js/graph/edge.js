@@ -10,14 +10,14 @@ app.factory("Edge", function(  ) {
 			   s4() + '-' + s4() + s4() + s4();
 	  };
 	};
-	return function(edgeText, id, ftom, to){
+	return function(edgeText, id, from, to){
 		var self = this;
 		this.text = edgeText;
 		this.id = id || createGuid();
-		this.from = from;
-		this.to = to;
+		this.source = from;
+		this.target = to;
 		this.incidentVertexes = function(){
-			return [self.from, self.to];
+			return [self.source, self.target];
 		};
 		this.oriented= false;
 	}

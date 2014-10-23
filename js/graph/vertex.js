@@ -11,7 +11,7 @@ app.factory("Vertex", function(  ) {
 	  };
 	};
 	return function(vertexText, id){
-		this.text = vertexText;
+		this.name = vertexText;
 		this.id = id || createGuid();
 	}
 });
