@@ -8,11 +8,13 @@ app.factory("GraphD3VisualizationService", function(){
 			.nodes(d3.values(nodes))
 			.links(links)
 			.size([viewPortCnfg.width, viewPortCnfg.height])
-			.linkDistance(60)
+			.linkDistance(100)
 			.charge(-300)
 			.on("tick", tick)
 			.start();
 
+		d3.select("svg").remove();
+	   
 		var svg = d3.select(viewPortCnfg.selector).append("svg")
 			.attr("width", viewPortCnfg.width)
 			.attr("height", viewPortCnfg.height);
@@ -25,7 +27,9 @@ app.factory("GraphD3VisualizationService", function(){
 		var node = svg.selectAll(".node")
 			.data(force.nodes())
 		  .enter().append("g")
-			.attr("class", "node")
+			.attr("class", function(d) {
+				return d.inCover?"node cover":"node"; 
+			})
 			.on("mouseover", mouseover)
 			.on("mouseout", mouseout)
 			.call(force.drag);
@@ -36,7 +40,9 @@ app.factory("GraphD3VisualizationService", function(){
 		node.append("text")
 			.attr("x", 12)
 			.attr("dy", ".35em")
-			.text(function(d) { return d.name; });
+			.text(function(d) {
+				return d.name; 
+			});
 			
 			
 		function tick() {
@@ -63,11 +69,13 @@ app.factory("GraphD3VisualizationService", function(){
 		}
 		};
 	
-		this.translateGrapToD3 =  function (g) {
+		this.translateGrapToD3 =  function (g, cover) {
 			var edges = g.edges;
 			var vertexes = g.vertexes;
 			var nodes = {};
+			cover = cover || [];
 			vertexes.forEach(function(e) {
+			e.inCover=cover.indexOf(e)>-1;
 		    nodes[e.name] = e;
 		}); 
 			return {

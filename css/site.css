@@ -18,6 +18,12 @@ body {
   stroke-width: 1.5px;
 }
 
+.cover circle {
+  fill: red;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
 text {
   font: 10px sans-serif;
   pointer-events: none;

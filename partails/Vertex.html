@@ -1,3 +1,30 @@
  {{wellcome}}
  <div class="viz-viewport">
  </div>
+ <br/>
+ <div class="well form-inline" style="width:960px">
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon">Vertices</div>
+			<input type="number" class="form-control" ng-model="verticesCount" >
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon">Edges</div>
+			<input class="form-control" ng-model="edgesCount" >
+		</div>
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="generate()" >Generate Graph</button>
+	</div>
+ </div>
+ <div class="well form-inline" style="width:960px">
+	<div class="form-group">
+		<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="mvcGreedy()" >MVC by Greedy</button>
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="mvcGreedy()" >NuMVC by Greedy</button>
+	</div>
+ </div>
+ 
