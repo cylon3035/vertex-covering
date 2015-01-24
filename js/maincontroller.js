@@ -20,6 +20,16 @@ VertexCoverService){
 		
 	}
 	
+	$scope.nuMVC =  function (){
+		
+		var cover = service.NuMVC($scope.graph);
+		console.log("COVER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		console.log(cover);
+		var d3graph = presentationService.translateGrapToD3($scope.graph,cover);
+		presentationService.visualizeD3(d3graph);
+		
+	}
+	
 	var builder = new GraphBuilder();
 	var service  = new VertexCoverService();
 	var presentationService = new GraphD3VisualizationService({
